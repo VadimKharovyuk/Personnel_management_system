@@ -1,10 +1,94 @@
+<!-- employees.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Employees</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
+    <style>
+        /* styles.css */
+
+        /* Стили для заголовка и ссылок */
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+
+        /* Стили для таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left; /* Выравнивание текста влево */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Цвет фона заголовков таблицы */
+            border-bottom: 2px solid #ddd; /* Нижняя граница */
+        }
+
+        tr {
+            border-bottom: 1px solid #ddd; /* Нижняя граница строк */
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; /* Изменение цвета при наведении */
+        }
+
+        /* Стили для кнопок */
+        button {
+            background-color: #f44336; /* Красный фон */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px; /* Округленные углы */
+        }
+
+        button:hover {
+            background-color: #e53935; /* Более темный красный при наведении */
+        }
+
+    </style>
 </head>
 <body>
-$END$
+<h1>Employee List</h1>
+<a href="/employees/new">Add New Employee</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Hire Date</th>
+        <th>Position</th>
+        <th>Actions</th>
+    </tr>
+    <!-- Проверка, если position не null -->
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.salary}"></td>
+        <td th:text="${employee.hireDate}"></td>
+        <td th:text="${employee.position == null ? 'Not Assigned' : employee.position.name}"></td> <!-- Простая null-проверка -->
+        <td>
+            <a th:href="'/employees/edit/' + ${employee.id}">Edit</a>
+            <form th:action="'/employees/delete/' + ${employee.id}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

@@ -1,10 +1,73 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
+    <style>
+        /* styles.css */
+
+        /* Основные стили для заголовков и навигации */
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none; /* Убираем маркеры */
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block; /* Отображение в одну строку */
+            margin: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none; /* Без подчеркивания */
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+
+        /* Общие стили для тела страницы */
+        body {
+            font-family: Arial, sans-serif; /* Установка шрифта */
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+    </style>
 </head>
 <body>
-$END$
+<h1>Welcome to the HR Management System</h1>
+<p>This system allows you to manage employees, positions, and other HR-related tasks. Please choose a section below to continue.</p>
+
+<!-- Список ссылок на другие части проекта -->
+<nav>
+    <ul>
+        <li><a href="/employees">Employee List</a></li> <!-- Ссылка на список сотрудников -->
+        <li><a href="/employees/new">Add New Employee</a></li> <!-- Ссылка на добавление сотрудника -->
+        <li><a href="/positions">Position List</a></li> <!-- Ссылка на список должностей -->
+        <li><a href="/positions/new">Add New Position</a></li> <!-- Ссылка на добавление новой должности -->
+    </ul>
+</nav>
+
+<!-- Другие полезные ссылки -->
+<p>Additional links for administrative tasks:</p>
+<nav>
+    <ul>
+        <li><a href="/reports">Reports</a></li> <!-- Ссылка на отчеты -->
+        <li><a href="/settings">Settings</a></li> <!-- Ссылка на настройки -->
+    </ul>
+</nav>
+
 </body>
 </html>

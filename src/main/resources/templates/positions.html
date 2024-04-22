@@ -1,10 +1,57 @@
+<!-- positions.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Positions</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+   <style>
+       /* Стили для таблиц */
+       table {
+           width: 100%;
+           border-collapse: collapse;
+       }
+
+       table th, table td {
+           padding: 10px;
+           text-align: left;
+           border-bottom: 1px solid #ccc;
+       }
+
+       table th {
+           background-color: #f2f2f2;
+       }
+
+       table a {
+           text-decoration: none;
+           color: #007bff;
+       }
+
+       table a:hover {
+           text-decoration: underline;
+       }
+   </style>
 </head>
 <body>
-$END$
+<h1>Position List</h1>
+<a href="/positions/new">Add New Position</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="position : ${positions}">
+        <td th:text="${position.id}"></td>
+        <td th:text="${position.name}"></td>
+        <td th:text="${position.description}"></td>
+        <td>
+            <a th:href="'/positions/edit/' + ${position.id}">Edit</a>
+            <form th:action="'/positions/delete/' + ${position.id}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
