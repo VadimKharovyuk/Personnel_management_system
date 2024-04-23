@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +27,12 @@ public class Booking {
     @Temporal(TemporalType.DATE)
     private Date booking_date;
 
+
+    public String getFirstName() {
+        return first_name;
+    }
+
+    public Date getBookingDate() {
+        return  booking_date;
+    }
 }
