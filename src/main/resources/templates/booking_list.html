@@ -3,8 +3,107 @@
 <head>
     <title>Bookings</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <style>
+        /* Общий стиль для всего документа */
+        body {
+            font-family: Arial, sans-serif; /* Шрифт */
+            background-color: #f8f9fa; /* Легкий серый фон */
+            margin: 0; /* Убираем внешние отступы */
+            padding: 0; /* Убираем внутренние отступы */
+        }
+
+        /* Заголовок страницы */
+        h1 {
+            text-align: center; /* Центрирование заголовка */
+            color: #333; /* Темный цвет */
+            margin: 20px 0; /* Отступы сверху и снизу */
+        }
+
+        /* Стиль таблицы */
+        table {
+            width: 80%; /* Таблица занимает 80% ширины страницы */
+            margin: 20px auto; /* Центрирование таблицы */
+            border-collapse: collapse; /* Убираем промежутки между границами */
+            background-color: #fff; /* Белый фон */
+            border: 1px solid #ddd; /* Легкая граница */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Легкая тень */
+        }
+
+        /* Заголовки столбцов */
+        th {
+            background-color: #007bff; /* Синий фон */
+            color: white; /* Белый текст */
+            padding: 10px; /* Отступы внутри */
+            text-align: left; /* Выравнивание текста */
+        }
+
+        /* Стиль строк данных */
+        td {
+            padding: 10px; /* Отступы внутри */
+            border-bottom: 1px solid #ddd; /* Граница под строкой */
+        }
+
+        /* Стилизация при наведении */
+        tr:hover {
+            background-color: #f1f1f1; /* Светлый фон при наведении */
+        }
+
+        /* Ссылка для добавления новой записи */
+        a {
+            text-align: center; /* Центрирование */
+            display: block; /* Блочное отображение */
+            text-decoration: none; /* Без подчеркивания */
+            color: #007bff; /* Синий цвет */
+            margin: 20px auto; /* Центрирование и отступы */
+        }
+
+        /* Эффект при наведении на ссылку */
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+        .dark-nav {
+            background-color: rgb(5, 76, 79); /* Темный фон с прозрачностью */
+            padding: 10px; /* Отступ */
+            border-radius: 5px; /* Округление углов */
+        }
+
+        .dark-nav ul {
+            list-style: none; /* Убираем точки */
+            margin: 0; /* Обнуляем внешний отступ */
+            padding: 0; /* Обнуляем внутренний отступ */
+            display: flex; /* Горизонтальное расположение элементов */
+            justify-content: space-around; /* Равномерное распределение */
+        }
+
+        .dark-nav ul li a {
+            color: white; /* Белый цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            padding: 10px 15px; /* Отступ внутри элементов */
+            transition: background-color 0.3s; /* Эффект перехода */
+        }
+
+        .dark-nav ul li a:hover {
+            background-color: rgb(76, 165, 203); /* Цвет при наведении с прозрачностью */
+        }
+
+        .dark-nav ul li a:active {
+            background-color: rgb(21, 21, 194); /* Цвет при активном состоянии с прозрачностью */
+        }
+
+    </style>
 </head>
+
 <body>
+<nav class="dark-nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/employees">Employee List</a></li>
+        <li><a href="/employees/new">Add New Employee</a></li>
+        <li><a href="/teamNames">Command List</a></li>
+        <li><a href="/teamNames/new">Add New Team</a></li>
+        <li><a href="/bookings/new">Booking</a></li>
+    </ul>
+</nav>
 <h1>Bookings List</h1>
 <!-- Исправленный шаблон -->
 <table>
@@ -15,18 +114,27 @@
         <th>Phone Number</th>
         <th>Email</th>
         <th>Booking Date</th>
+        <th>Actions</th> <!-- Новый столбец для действий -->
     </tr>
     </thead>
     <tbody>
     <tr th:each="booking : ${bookings}">
-        <td th:text="${booking.first_name}"></td> <!-- Исправленное выражение -->
+        <td th:text="${booking.first_name}"></td>
         <td th:text="${booking.last_name}"></td>
         <td th:text="${booking.phone_number}"></td>
         <td th:text="${booking.email}"></td>
         <td th:text="${booking.booking_date}"></td>
+        <td>
+            <!-- Кнопка для удаления -->
+            <form th:action="@{/bookings/{id}/delete(id=${booking.id})}" method="post" onsubmit="return confirm('Are you sure you want to delete this booking?');">
+                <button type="submit" class="btn btn-danger">Delete Booking</button>
+            </form>
+
+        </td>
     </tr>
     </tbody>
 </table>
+
 
 <a href="/bookings/new">Add New Booking</a> <!-- Ссылка на добавление новой записи -->
 </body>

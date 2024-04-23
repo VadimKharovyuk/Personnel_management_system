@@ -22,4 +22,7 @@ public class BookingService {
     }
 
 
+    public void deleteById(Long id) {
+        bookingRepository.deleteById(id);
+    }
 }

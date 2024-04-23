@@ -70,7 +70,7 @@ public class EmployeeController {
         }
     }
 
-    @DeleteMapping("/{id}")
+   @PostMapping("/delete/{id}")
     public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteById(id);
         return "redirect:/employees";  // Перенаправление после удаления

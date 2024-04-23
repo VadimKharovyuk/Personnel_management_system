@@ -4,8 +4,117 @@
     <title>Booking Form</title>
     <!-- Включите необходимые CSS и JavaScript библиотеки -->
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <style>
+        /* Общий стиль для всего документа */
+        body {
+            font-family: Arial, sans-serif; /* Используем современный шрифт */
+            background-color: #f8f9fa; /* Легкий серый фон */
+            margin: 0; /* Убираем внешний отступ */
+            padding: 0; /* Убираем внутренний отступ */
+        }
+
+        /* Стиль контейнера формы */
+        .form-container {
+            background-color: #ffffff; /* Белый фон */
+            padding: 20px; /* Увеличенные отступы */
+            margin: 20px auto; /* Центрирование контейнера */
+            max-width: 600px; /* Максимальная ширина */
+            border: 1px solid #ddd; /* Светлая граница */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Легкая тень */
+        }
+
+        /* Стиль заголовка */
+        h1 {
+            color: #333; /* Темный цвет текста */
+            text-align: center; /* Центрирование */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        /* Стиль полей ввода */
+        input[type="text"], input[type="email"], input[type="date"] {
+            width: 100%; /* Ширина на всю форму */
+            padding: 10px; /* Внутренние отступы */
+            border: 1px solid #ccc; /* Граница */
+            border-radius: 5px; /* Закругленные углы */
+            margin-bottom: 15px; /* Отступы между полями */
+        }
+
+        /* Стиль кнопки */
+        button {
+            background-color: #28a745; /* Зеленый фон */
+            color: white; /* Белый цвет текста */
+            padding: 10px 20px; /* Размеры */
+            border: none; /* Без границы */
+            border-radius: 5px; /* Закругленные углы */
+            cursor: pointer; /* Указатель при наведении */
+        }
+
+        /* Эффект при наведении */
+        button:hover {
+            background-color: #218838; /* Темный зеленый при наведении */
+        }
+
+        /* Эффект при нажатии */
+        button:active {
+            background-color: #1e7e34; /* Еще более темный зеленый */
+        }
+
+        /* Стиль ссылки */
+        a {
+            text-decoration: none; /* Без подчеркивания */
+            color: #007bff; /* Синий цвет */
+            margin-top: 15px; /* Отступ сверху */
+            display: block; /* Блочное отображение */
+            text-align: center; /* Центрирование */
+        }
+
+        /* Эффект при наведении на ссылку */
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+        .dark-nav {
+            background-color: rgb(5, 76, 79); /* Темный фон с прозрачностью */
+            padding: 10px; /* Отступ */
+            border-radius: 5px; /* Округление углов */
+        }
+
+        .dark-nav ul {
+            list-style: none; /* Убираем точки */
+            margin: 0; /* Обнуляем внешний отступ */
+            padding: 0; /* Обнуляем внутренний отступ */
+            display: flex; /* Горизонтальное расположение элементов */
+            justify-content: space-around; /* Равномерное распределение */
+        }
+
+        .dark-nav ul li a {
+            color: white; /* Белый цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            padding: 10px 15px; /* Отступ внутри элементов */
+            transition: background-color 0.3s; /* Эффект перехода */
+        }
+
+        .dark-nav ul li a:hover {
+            background-color: rgb(76, 165, 203); /* Цвет при наведении с прозрачностью */
+        }
+
+        .dark-nav ul li a:active {
+            background-color: rgb(21, 21, 194); /* Цвет при активном состоянии с прозрачностью */
+        }
+
+    </style>
 </head>
 <body>
+<nav class="dark-nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/employees">Employee List</a></li>
+        <li><a href="/employees/new">Add New Employee</a></li>
+        <li><a href="/teamNames">Command List</a></li>
+        <li><a href="/teamNames/new">Add New Team</a></li>
+        <li><a href="/bookings/new">Booking</a></li>
+    </ul>
+</nav>
 <div class="form-container">
     <h1>Booking Form</h1>
     <form th:action="@{/bookings}" th:object="${booking}" method="post">

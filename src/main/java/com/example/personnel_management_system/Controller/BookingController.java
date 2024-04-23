@@ -26,7 +26,7 @@ public class BookingController {
     }
 
     @PostMapping("/bookings")
-    public String createBooking(@Validated  @ModelAttribute Booking booking,BindingResult result) {
+    public String createBooking(@Validated @ModelAttribute Booking booking, BindingResult result) {
         if (result.hasErrors()) {
             return "booking_form"; // Возврат формы с ошибками
         }
@@ -34,10 +34,17 @@ public class BookingController {
         bookingService.save(booking); // Сохранение бронирования
         return "redirect:/bookings"; // Редирект после успешного сохранения
     }
+
     @GetMapping("/bookings")
     public String listBookings(Model model) {
         model.addAttribute("bookings", bookingService.findAll()); // Получение всех бронирований
         return "booking_list"; // Имя HTML-шаблона для отображения списка
+    }
+
+    @PostMapping("/bookings/{id}/delete")
+    public String deleteBooking(@PathVariable("id") Long id) {
+        bookingService.deleteById(id); // Удаление бронирования по ID
+        return "redirect:/bookings";
     }
 }
 
