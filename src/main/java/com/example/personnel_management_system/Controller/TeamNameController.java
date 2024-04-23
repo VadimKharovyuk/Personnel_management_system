@@ -46,7 +46,7 @@ public class TeamNameController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @RequestMapping("/{id}")
     public String deleteTeamName(@PathVariable Long id) {
         teamNameService.deleteById(id);
         return "redirect:/teamNames";  // Перенаправляем после удаления

@@ -3,51 +3,109 @@
 <head>
     <title>Employee List</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
+    <style>
+        /* Стили для центрирования таблицы */
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; /* Отступ вокруг контейнера */
+        }
+
+        /* Стили для таблицы */
+        .employee-table {
+            border-collapse: collapse; /* Убирает двойные границы */
+            width: 80%; /* Ширина таблицы */
+            text-align: center; /* Выравнивание текста */
+            background-color: #f9f9f9; /* Цвет фона таблицы */
+        }
+
+        .employee-table th,
+        .employee-table td {
+            padding: 10px; /* Отступ внутри ячеек */
+            border: 1px solid #ccc; /* Граница ячеек */
+        }
+
+        .employee-table th {
+            background-color: #e0e0e0; /* Цвет заголовков */
+            font-weight: bold; /* Жирный шрифт для заголовков */
+        }
+
+        .employee-table tr:nth-child(even) {
+            background-color: #f2f2f2; /* Альтернативное окрашивание строк */
+        }
+
+        /* Стили для кнопки добавления нового сотрудника */
+        .add-employee-button {
+            padding: 10px 20px; /* Размер кнопки */
+            border: none; /* Без границы */
+            border-radius: 5px; /* Округление углов */
+            background-color: #4CAF50; /* Цвет кнопки */
+            color: white; /* Цвет текста */
+            cursor: pointer; /* Указатель курсора */
+        }
+
+        .add-employee-button:hover {
+            background-color: #45a049; /* Цвет при наведении */
+        }
+
+        /* Стили для ссылок и кнопок действий */
+        .action-links a {
+            color: #1f78b4; /* Цвет ссылок */
+            text-decoration: none; /* Убирает подчеркивание */
+        }
+
+        .action-links a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+    </style>
 </head>
 <body>
 <h1>Employee List</h1>
 
 <!-- Кнопка для добавления нового сотрудника -->
 <a href="/employees/new">
-    <button type="button">Add New Employee</button>
+    <button class="add-employee-button" type="button">Add New Employee</button>
 </a>
 
 <!-- Таблица со списком сотрудников -->
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Last Name</th>
-        <th>Salary</th>
-        <th>Hire Date</th>
-        <th>Position</th>
-        <th>Team</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Проходимся по списку сотрудников -->
-    <tr th:each="employee : ${employees}">
-        <td th:text="${employee.id}"></td> <!-- ID -->
-        <td th:text="${employee.name}"></td> <!-- Имя -->
-        <td th:text="${employee.lastname}"></td> <!-- Фамилия -->
-        <td th:text="${employee.salary}"></td> <!-- Зарплата -->
-        <td th:text="${employee.hireDate}"></td> <!-- Дата найма -->
-        <td th:text="${employee.position}"></td> <!-- Позиция -->
-        <td th:text="${employee.team.name}"></td> <!-- Название команды -->
-        <td>
-            <!-- Ссылка для редактирования сотрудника -->
-            <a th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a>
-            <!-- Форма для удаления сотрудника -->
-            <form th:action="@{'/employees/delete/' + ${employee.id}}" method="post" style="display:inline;">
-                <input type="hidden" name="_method" value="DELETE"/> <!-- Указываем метод DELETE -->
-                <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="table-container"> <!-- Контейнер для центрирования таблицы -->
+    <table class="employee-table"> <!-- Добавляем класс к таблице -->
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Salary</th>
+            <th>Hire Date</th>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Проходимся по списку сотрудников -->
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.id}"></td> <!-- ID -->
+            <td th:text="${employee.name}"></td> <!-- Имя -->
+            <td th:text="${employee.lastname}"></td> <!-- Фамилия -->
+            <td th:text="${employee.salary}"></td> <!-- Зарплата -->
+            <td th:text="${employee.hireDate}"></td> <!-- Дата найма -->
+            <td th:text="${employee.position}"></td> <!-- Позиция -->
+            <td th:text="${employee.team.name}"></td> <!-- Название команды -->
+            <td class="action-links"> <!-- Класс для ссылок -->
+                <!-- Ссылка для редактирования сотрудника -->
+                <a th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a>
+                <!-- Форма для удаления сотрудника -->
+                <form th:action="@{'/employees/delete/' + ${employee.id}}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="DELETE"/> <!-- Указываем метод DELETE -->
+                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 <!-- Ссылка на главную -->
 <a href="/">Back to Home</a>

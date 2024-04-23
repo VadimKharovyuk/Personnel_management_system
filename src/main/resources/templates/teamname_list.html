@@ -3,46 +3,112 @@
 <head>
     <title>Team List</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
+    <style>
+        /* Центрирование содержимого */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5; /* Светлый фон */
+            height: 100vh; /* Занимает всю высоту окна */
+        }
+
+        /* Центрирование таблицы */
+        .table-container {
+            width: 80%; /* Ширина контейнера таблицы */
+            background-color: #ffffff; /* Белый фон */
+            padding: 20px; /* Отступы */
+            border: 1px solid #ddd; /* Граница */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+        /* Заголовок */
+        h1 {
+            text-align: center; /* Центрирование заголовка */
+            color: #333; /* Цвет текста */
+            font-size: 24px; /* Размер шрифта */
+        }
+
+        /* Стили для таблицы */
+        table {
+            width: 100%; /* Полная ширина */
+            border-collapse: collapse; /* Удаляет промежутки между ячейками */
+        }
+
+        th, td {
+            padding: 10px; /* Отступы */
+            border-bottom: 1px solid #ddd; /* Граница между строками */
+            text-align: left; /* Текст выровнен слева */
+        }
+
+        /* Стиль кнопки */
+        button {
+            padding: 10px 20px; /* Отступы */
+            background-color: #4CAF50; /* Зеленый фон */
+            color: white; /* Белый цвет текста */
+            border: none; /* Без границы */
+            border-radius: 5px; /* Закругленные углы */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s; /* Плавный переход */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Темно-зеленый при наведении */
+        }
+
+        /* Стиль ссылки "Back to Home" */
+        a {
+            text-decoration: none; /* Без подчеркивания */
+            color: #1f78b4; /* Синий цвет */
+            margin-top: 10px; /* Отступ сверху */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+    </style>
 </head>
 <body>
-<h1>Team List</h1>
+<div class="table-container"> <!-- Центрированный контейнер таблицы -->
+    <h1>Team List</h1> <!-- Заголовок -->
 
-<!-- Кнопка для добавления новой команды -->
-<a href="/teamNames/new">
-    <button type="button">Add New Team</button>
-</a>
+    <!-- Кнопка для добавления новой команды -->
+    <a href="/teamNames/new">
+        <button type="button">Add New Team</button> <!-- Кнопка -->
+    </a>
 
-<!-- Таблица со списком команд -->
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Проходимся по списку команд -->
-    <tr th:each="teamName : ${teamNames}">
-        <td th:text="${teamName.id}"></td> <!-- ID -->
-        <td th:text="${teamName.name}"></td> <!-- Имя -->
-        <td th:text="${teamName.description}"></td> <!-- Описание -->
-        <td>
-            <!-- Ссылка для редактирования команды -->
-            <a th:href="@{'/teamNames/' + ${teamName.id}}">Edit</a>
-            <!-- Форма для удаления команды -->
-            <form th:action="@{'/teamNames/' + ${teamName.id}}" method="post" style="display:inline;">
-                <input type="hidden" name="_method" value="DELETE"/> <!-- Указываем метод DELETE -->
-                <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
+    <!-- Таблица со списком команд -->
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th> <!-- Заголовки -->
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Проходимся по списку команд -->
+        <tr th:each="teamName : ${teamNames}">
+            <td th:text="${teamName.id}"></td> <!-- ID -->
+            <td th:text="${teamName.name}"></td> <!-- Имя -->
+            <td th:text="${teamName.description}"></td> <!-- Описание -->
+            <td>
+                <!-- Ссылка для редактирования команды -->
+                <a th:href="@{'/teamNames/' + ${teamName.id}}">Edit</a>
+                <!-- Форма для удаления команды -->
+                <form th:action="@{'/teamNames/' + ${teamName.id}}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="DELETE"/> <!-- Указываем метод DELETE -->
+                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button> <!-- Кнопка удаления -->
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-<!-- Ссылка на главную -->
-<a href="/">Back to Home</a>
-
+    <!-- Ссылка на главную -->
+    <a href="/">Back to Home</a> <!-- Ссылка "Назад домой" -->
+</div>
 </body>
 </html>

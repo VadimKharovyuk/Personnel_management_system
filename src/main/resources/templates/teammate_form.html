@@ -1,24 +1,86 @@
-<!-- teamname_form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Team Form</title>
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <style>
+    /* Центрирование контента на странице */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Страница занимает всю высоту окна */
+      background-color: #f0f0f0; /* Светлый фон страницы */
+    }
+
+    /* Стиль заголовка */
+    h1 {
+      color: #333; /* Цвет заголовка */
+      font-size: 24px; /* Размер шрифта */
+      margin-bottom: 20px; /* Отступ снизу */
+    }
+
+    /* Стиль контейнера формы */
+    .form-container {
+      background-color: #ffffff; /* Белый фон контейнера */
+      padding: 20px; /* Внутренние отступы */
+      border: 1px solid #ddd; /* Граница контейнера */
+      border-radius: 10px; /* Закругленные углы */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    }
+
+    /* Стиль полей ввода */
+    input[type="text"], textarea {
+      width: 100%; /* Поля занимают всю ширину */
+      padding: 10px; /* Внутренние отступы */
+      border: 1px solid #ccc; /* Граница полей */
+      border-radius: 5px; /* Закругленные углы */
+    }
+
+    /* Стиль кнопки сохранения */
+    button {
+      padding: 10px 20px; /* Размер кнопки */
+      border: none; /* Без границы */
+      border-radius: 5px; /* Закругленные углы */
+      background-color: #4CAF50; /* Зеленый фон */
+      color: white; /* Белый цвет текста */
+      cursor: pointer; /* Указатель при наведении */
+      margin-top: 10px; /* Отступ сверху */
+    }
+
+    button:hover {
+      background-color: #45a049; /* Темный оттенок при наведении */
+    }
+
+    /* Стиль ссылки "Back to Team List" */
+    a {
+      text-decoration: none; /* Без подчеркивания */
+      color: #1f78b4; /* Синий цвет */
+      margin-top: 10px; /* Отступ сверху */
+      display: block; /* Ссылка в виде блока */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Подчеркивание при наведении */
+    }
+  </style>
 </head>
 <body>
-<h1>Team Form</h1>
-<form th:action="@{/teamNames}" th:object="${teamName}" method="post">
-  <input type="hidden" th:field="*{id}"/>
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" th:field="*{name}" required/>
-  </div>
-  <div>
-    <label for="description">Description:</label>
-    <textarea th:field="*{description}"></textarea>
-  </div>
-  <button type="submit">Save</button>
-</form>
-<a href="/teamNames">Back to Team List</a>
+<div class="form-container"> <!-- Контейнер для формы -->
+  <h1>Team Form</h1>
+  <form th:action="@{/teamNames}" th:object="${teamName}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" th:field="*{name}" required/>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea th:field="*{description}"></textarea>
+    </div>
+    <button type="submit">Save</button> <!-- Кнопка сохранения -->
+  </form>
+  <a href="/teamNames">Back to Team List</a> <!-- Ссылка "Назад к списку команд" -->
+</div>
 </body>
 </html>
