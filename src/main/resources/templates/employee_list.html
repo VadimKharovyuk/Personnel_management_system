@@ -4,6 +4,39 @@
     <title>Employee List</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
     <style>
+        /* Темная навигация */
+        .dark-nav {
+            background-color: #333; /* Темный фон */
+            padding: 10px; /* Отступ */
+            border-radius: 5px; /* Округление углов */
+        }
+
+        .dark-nav ul {
+            list-style: none; /* Убираем точки */
+            margin: 0; /* Обнуляем внешний отступ */
+            padding: 0; /* Обнуляем внутренний отступ */
+            display: flex; /* Горизонтальное расположение элементов */
+            justify-content: space-around; /* Равномерное распределение */
+        }
+
+        .dark-nav ul li {
+            margin: 0; /* Обнуляем внешний отступ */
+        }
+
+        .dark-nav ul li a {
+            color: white; /* Белый цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            padding: 10px 15px; /* Отступ внутри элементов */
+            transition: background-color 0.3s; /* Эффект перехода */
+        }
+
+        .dark-nav ul li a:hover {
+            background-color: #555; /* Цвет при наведении */
+        }
+
+        .dark-nav ul li a:active {
+            background-color: #777; /* Цвет при активном состоянии */
+        }
         /* Стили для центрирования таблицы */
         .table-container {
             display: flex;
@@ -60,6 +93,15 @@
         }
     </style>
 </head>
+<nav class="dark-nav"> <!-- Применяем класс темной навигации -->
+    <ul>
+        <li><a href="/">Home</a></li> <!-- Ссылка на список сотрудников -->
+        <li><a href="/employees">Employee List</a></li> <!-- Ссылка на список сотрудников -->
+        <li><a href="/employees/new">Add New Employee</a></li> <!-- Ссылка на добавление сотрудника -->
+        <li><a href="/teamNames">Position List</a></li> <!-- Ссылка на список должностей -->
+        <li><a href="/teamNames/new">Add New Team</a></li> <!-- Ссылка на добавление новой должности -->
+    </ul>
+</nav>
 <body>
 <h1>Employee List</h1>
 

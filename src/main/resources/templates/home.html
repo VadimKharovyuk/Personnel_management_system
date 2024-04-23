@@ -1,73 +1,110 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Home Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <style>
-        /* styles.css */
-
-        /* Основные стили для заголовков и навигации */
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        nav {
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none; /* Убираем маркеры */
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline-block; /* Отображение в одну строку */
-            margin: 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none; /* Без подчеркивания */
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline; /* Подчеркивание при наведении */
-        }
-
-        /* Общие стили для тела страницы */
         body {
-            font-family: Arial, sans-serif; /* Установка шрифта */
-            background-color: #f5f5f5;
-            padding: 20px;
+            background-color: #9ea0cb;
+            background-image:
+                    radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%),
+                    radial-gradient(at 82% 65%, hsl(292, 54%, 43%) 0, transparent 55%);
         }
 
+
+        .hederh1{
+            color: whitesmoke;
+            text-align: center;
+            padding: 50px;
+        }
+        /* Стили для навигации */
+        .dark-nav {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .dark-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .dark-nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        .dark-nav ul li a:hover {
+            background-color: #555;
+        }
+        .services-section {
+            width: 70%; /* Ширина секции */
+            margin: 0 auto; /* Центрирование секций */
+            background-color: #bbe3d5; /* Белый фон секции */
+            padding: 20px; /* Отступы вокруг контента */
+            margin-bottom: 50px; /* Отступ между секциями */
+            border-radius: 10px; /* Округленные углы */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Тень для секций */
+            transition: box-shadow 0.3s; /* Переход для тени */
+        }
+
+
+
+        .services-section:hover {
+            box-shadow: 0 8px 16px 0 rgba(14, 232, 59, 0.9); /* Более сильная тень при наведении */
+        }
     </style>
 </head>
 <body>
-<h1>Welcome to the HR Management System</h1>
-<p>This system allows you to manage employees, positions, and other HR-related tasks. Please choose a section below to continue.</p>
 
-<!-- Список ссылок на другие части проекта -->
-<nav>
+<!-- Навигация -->
+<nav class="dark-nav">
     <ul>
-        <li><a href="/employees">Employee List</a></li> <!-- Ссылка на список сотрудников -->
-        <li><a href="/employees/new">Add New Employee</a></li> <!-- Ссылка на добавление сотрудника -->
-        <li><a href="/teamNames">Position List</a></li> <!-- Ссылка на список должностей -->
-        <li><a href="/teamNames/new">Add New  Команда</a></li> <!-- Ссылка на добавление новой должности -->
+        <li><a href="/">Home</a></li>
+        <li><a href="/employees">Employee List</a></li>
+        <li><a href="/employees/new">Add New Employee</a></li>
+        <li><a href="/teamNames">Position List</a></li>
+        <li><a href="/teamNames/new">Add New Team</a></li>
     </ul>
 </nav>
 
-<!-- Другие полезные ссылки -->
+<header class="parallax"> <!-- Добавляем класс параллакса -->
+    <h1 class="hederh1">Организуем шоу, которые покоряют сердца"</h1>
+    <p class="hederh1">Создаем уникальные моменты в мире шоу-бизнеса. Ваше событие - наша забота."</p>
+</header>
+
+<!-- Дополнительные ссылки -->
 <p>Additional links for administrative tasks:</p>
 <nav>
     <ul>
-        <li><a href="/reports">Reports</a></li> <!-- Ссылка на отчеты -->
-        <li><a href="/settings">Settings</a></li> <!-- Ссылка на настройки -->
+        <li><a href="/reports">Reports</a></li>
+        <li><a href="/settings">Settings</a></li>
     </ul>
 </nav>
+<section class="services-section" id="artists-services">
+    <h2>Услуги по Работе с Артистами</h2>
+    <p>Мы предлагаем разнообразный спектр услуг для работы с артистами. Наша команда включает:</p>
+    <ul>
+        <li><strong>Танцоры</strong>: Мы работаем с профессиональными танцорами, которые могут выступать в различных стилях, от классического балета до современных хип-хоп направлений.</li>
+        <li><strong>Акробаты</strong>: Наши акробаты — мастера сложных трюков, которые добавят захватывающие моменты в любое шоу или мероприятие.</li>
+        <li><strong>Музыканты</strong>: Мы предоставляем талантливых музыкантов, включая оркестры, ансамбли и сольных исполнителей, которые создадут идеальную атмосферу для вашего события.</li>
+    </ul>
+</section>
+
+<section class="services-section" id="corporate-services">
+    <h2>Услуги для Проведения Корпоративов</h2>
+    <p>Мы предлагаем полный спектр услуг для организации корпоративных мероприятий:</p>
+    <ul>
+        <li><strong>Организация шоу-программ</strong>: Мы можем создать и организовать развлекательные программы, которые включают выступления танцоров, акробатов, музыкантов и других артистов.</li>
+        <li><strong>Техническая Поддержка</strong>: Наша команда обеспечивает полную техническую поддержку, включая звуковое и световое оборудование, для проведения мероприятий на высшем уровне.</li>
+        <li><strong>Услуги Координации</strong>: Наши профессиональные координаторы позаботятся о том, чтобы ваше корпоративное мероприятие прошло гладко, управляя логистикой и расписанием.</li>
+    </ul>
+</section>
+<section class="services-section" id="company-history">
+    <h2>История Создания Компании</h2>
+    <p>Наша компания была основана в 2008 году группой энтузиастов шоу-бизнеса. Мы начали с небольших выступлений, но благодаря нашему креативному подходу и страсти к искусству, мы быстро выросли. Сейчас мы являемся ведущей компанией в области организации мероприятий, с репутацией за создание уникальных и ярких шоу. Мы гордимся тем, что смогли собрать команду талантливых артистов и профессионалов, которые готовы воплотить любые идеи в реальность.</p>
+</section>
 
 </body>
 </html>
