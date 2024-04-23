@@ -31,8 +31,10 @@ public class EmployeeService {
     public void deleteById(Long id) {
         employeeRepository.deleteById(id);
     }
-    // Метод поиска сотрудников по имени
+
+    // Метод поиска сотрудников по имени, игнорируя регистр (без учета camelCase)
     public List<Employee> searchByName(String name) {
-        return employeeRepository.findByName(name);
+        String lowerCaseName = name.toLowerCase(); // Преобразование имени в нижний регистр
+        return employeeRepository.findByNameIgnoreCase(lowerCaseName);
     }
 }
