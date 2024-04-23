@@ -1,0 +1,24 @@
+<!-- teamname_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Team Form</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Team Form</h1>
+<form th:action="@{/teamNames}" th:object="${teamName}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" th:field="*{name}" required/>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea th:field="*{description}"></textarea>
+  </div>
+  <button type="submit">Save</button>
+</form>
+<a href="/teamNames">Back to Team List</a>
+</body>
+</html>

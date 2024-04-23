@@ -1,66 +1,72 @@
 package com.example.personnel_management_system.Controller;
 
-import com.example.personnel_management_system.Service.EmployeeService;
-import com.example.personnel_management_system.Service.PositionService;
+import com.example.personnel_management_system.Service.TeamNameService;
 import com.example.personnel_management_system.model.Employee;
-import com.example.personnel_management_system.model.Position;
+import com.example.personnel_management_system.model.TeamName;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @Controller
+@RequestMapping("/employees")
 @AllArgsConstructor
 public class EmployeeController {
-    private EmployeeService employeeService;
-    private final PositionService positionService ;
+    private final com.example.personnel_management_system.service.EmployeeService employeeService;
+    private final TeamNameService teamNameService;
 
-    @GetMapping("/employees")
-    public String listEmployees(Model model) {
-        List<Employee> employees = employeeService.findAll();
-
-        // Проверка данных перед отправкой в шаблон
-        for (Employee employee : employees) {
-            if (employee.getPosition() == null) {
-                System.out.println("Employee ID " + employee.getId() + " has no position assigned.");
-            }
+    @PostMapping
+    public String saveEmployee(@ModelAttribute Employee employee, BindingResult result) {
+        if (result.hasErrors()) {
+            return "employee_form";  // Возвращаем форму с ошибками
         }
 
-        model.addAttribute("employees", employees);
-        return "employees";
+        // Проверяем, что `team` не `null`
+        if (employee.getTeam() == null || employee.getTeam().getId() == null) {
+            result.rejectValue("team", "error.employee", "Team must be selected.");
+            return "employee_form";
+        }
+
+        // Получаем объект TeamName
+        Optional<TeamName> teamOptional = teamNameService.findById(employee.getTeam().getId());
+
+        if (teamOptional.isPresent()) {
+            employee.setTeam(teamOptional.get());  // Извлекаем значение из Optional
+        } else {
+            throw new IllegalArgumentException("Team with given ID not found.");
+        }
+
+        employeeService.save(employee);  // Сохраняем сотрудника
+        return "redirect:/employees/new";  // Перенаправление после успешного сохранения
     }
 
-
-    // Метод для отображения формы добавления нового сотрудника
-    @GetMapping("/employees/new")
+    @GetMapping("/new")
     public String newEmployeeForm(Model model) {
-        model.addAttribute("employee", new Employee()); // Новый объект Employee
-        List<Position> positions = positionService.findAll(); // Получаем все позиции
-        model.addAttribute("positions", positions); // Передаем список позиций в модель
-        return "employee_form"; // Имя шаблона
-    }
-
-    // Метод для обработки POST-запроса на добавление сотрудника
-    @PostMapping("/employees-add")
-    public String saveEmployee(Employee employee) { // Spring привяжет данные формы к объекту Employee
-        employeeService.save(employee); // Сохраняем сотрудника
-        return "redirect:/employees"; // Перенаправляем на список сотрудников
-    }
-
-    @GetMapping("/employees/edit/{id}")
-    public String editEmployeeForm(@PathVariable Long id, Model model) {
-        model.addAttribute("employee", employeeService.findById(id));
+        model.addAttribute("employee", new Employee());
+        model.addAttribute("teamNames", teamNameService.findAll());
         return "employee_form";
     }
 
-    @PostMapping("/employees/delete/{id}")
+    @GetMapping("/{id}")
+    public String editEmployeeForm(@PathVariable Long id, Model model) {
+        Optional<Employee> employeeOptional = employeeService.findById(id);
+
+        if (employeeOptional.isPresent()) {
+            model.addAttribute("employee", employeeOptional.get());
+            model.addAttribute("teamNames", teamNameService.findAll());
+            return "employee_form";
+        } else {
+            model.addAttribute("error", "Employee not found.");
+            return "employee_list";  // Переход к списку сотрудников
+        }
+    }
+
+    @DeleteMapping("/{id}")
     public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteById(id);
-        return "redirect:/employees";
+        return "redirect:/employees";  // Перенаправление после удаления
     }
 }

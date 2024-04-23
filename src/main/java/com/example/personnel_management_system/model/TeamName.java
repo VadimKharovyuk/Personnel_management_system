@@ -11,14 +11,16 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Position {
+public class TeamName {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String description;
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)  // Все работники этой команды
+    private List<Employee> employees;  // Список работников в команде
 
-    @OneToMany(mappedBy = "position") // Обратное отношение к Employee
-    private List<Employee> employees;
+
+
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee Form</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
+</head>
+<body>
+<h1 th:text="${#strings.equals(employee.id, null) ? 'Add New Employee' : 'Edit Employee'}"></h1> <!-- Заголовок в зависимости от действия -->
+
+<form th:action="@{/employees}" th:object="${employee}" method="post"> <!-- Форма для сохранения сотрудника -->
+    <input type="hidden" th:field="*{id}"/> <!-- Скрытое поле для ID, если редактируем -->
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" required/> <!-- Поле для ввода имени -->
+    </div>
+
+    <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" th:field="*{lastname}" required/> <!-- Поле для ввода фамилии -->
+    </div>
+
+    <div>
+        <label for="salary">Salary:</label>
+        <input type="number" th:field="*{salary}" required/> <!-- Поле для ввода зарплаты -->
+    </div>
+
+    <div>
+        <label for="hireDate">Hire Date:</label>
+        <input type="date" th:field="*{hireDate}" required/> <!-- Поле для ввода даты найма -->
+    </div>
+
+    <div>
+        <label for="position">Position:</label>
+        <input type="text" th:field="*{position}" required/> <!-- Поле для ввода позиции -->
+    </div>
+
+    <div>
+        <label for="team">Team:</label>
+        <select th:field="*{team.id}"> <!-- Выпадающий список команд -->
+            <option value="">Select a team</option> <!-- Значение по умолчанию -->
+            <option th:each="team : ${teamNames}" th:value="${team.id}" th:text="${team.name}"></option> <!-- Опции -->
+        </select>
+    </div>
+
+    <div>
+        <label for="phone">Phone (Optional):</label>
+        <input type="tel" th:field="*{phone}"/> <!-- Поле для телефона, не обязательное -->
+    </div>
+
+    <button type="submit">Save</button> <!-- Кнопка сохранения -->
+</form>
+
+<a href="/employees">Back to Employee List</a> <!-- Ссылка на список сотрудников -->
+
+</body>
+</html>

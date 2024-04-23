@@ -1,11 +1,14 @@
-package com.example.personnel_management_system.Service;
+package com.example.personnel_management_system.service;
 
 import com.example.personnel_management_system.Repository.EmployeeRepository;
 import com.example.personnel_management_system.model.Employee;
+import com.example.personnel_management_system.model.TeamName;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -17,8 +20,8 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee findById(Long id) {
-        return employeeRepository.findById(id).orElse(null);
+    public Optional<Employee> findById(Long id) {
+        return employeeRepository.findById(id);
     }
 
     public Employee save(Employee employee) {

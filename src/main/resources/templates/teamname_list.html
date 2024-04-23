@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Team List</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"> <!-- Подключение CSS -->
+</head>
+<body>
+<h1>Team List</h1>
+
+<!-- Кнопка для добавления новой команды -->
+<a href="/teamNames/new">
+    <button type="button">Add New Team</button>
+</a>
+
+<!-- Таблица со списком команд -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Проходимся по списку команд -->
+    <tr th:each="teamName : ${teamNames}">
+        <td th:text="${teamName.id}"></td> <!-- ID -->
+        <td th:text="${teamName.name}"></td> <!-- Имя -->
+        <td th:text="${teamName.description}"></td> <!-- Описание -->
+        <td>
+            <!-- Ссылка для редактирования команды -->
+            <a th:href="@{'/teamNames/' + ${teamName.id}}">Edit</a>
+            <!-- Форма для удаления команды -->
+            <form th:action="@{'/teamNames/' + ${teamName.id}}" method="post" style="display:inline;">
+                <input type="hidden" name="_method" value="DELETE"/> <!-- Указываем метод DELETE -->
+                <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Ссылка на главную -->
+<a href="/">Back to Home</a>
+
+</body>
+</html>
