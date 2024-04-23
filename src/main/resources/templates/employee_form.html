@@ -87,7 +87,7 @@
     </ul>
 </nav>
 <body>
-<h1 th:text="${#strings.equals(employee.id, null) ? 'Add New Employee' : 'Edit Employee'}"></h1> <!-- Заголовок в зависимости от действия -->
+<h1 th:text="${#strings.equals(employee.id, null) ? 'Add New Employee' : 'Edit Employee'}" style="text-align: center"></h1> <!-- Заголовок в зависимости от действия -->
 
 <div class="form-container"> <!-- Контейнер для формы -->
     <form th:action="@{/employees}" th:object="${employee}" method="post"> <!-- Форма для сохранения сотрудника -->

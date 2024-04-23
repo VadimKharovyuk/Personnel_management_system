@@ -17,27 +17,35 @@
             text-align: center;
             padding: 50px;
         }
-        /* Стили для навигации */
         .dark-nav {
-            background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
+            background-color: rgb(5, 76, 79); /* Темный фон с прозрачностью */
+            padding: 10px; /* Отступ */
+            border-radius: 5px; /* Округление углов */
         }
+
         .dark-nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-around;
+            list-style: none; /* Убираем точки */
+            margin: 0; /* Обнуляем внешний отступ */
+            padding: 0; /* Обнуляем внутренний отступ */
+            display: flex; /* Горизонтальное расположение элементов */
+            justify-content: space-around; /* Равномерное распределение */
         }
+
         .dark-nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
+            color: white; /* Белый цвет текста */
+            text-decoration: none; /* Убираем подчеркивание */
+            padding: 10px 15px; /* Отступ внутри элементов */
+            transition: background-color 0.3s; /* Эффект перехода */
         }
+
         .dark-nav ul li a:hover {
-            background-color: #555;
+            background-color: rgb(76, 165, 203); /* Цвет при наведении с прозрачностью */
         }
+
+        .dark-nav ul li a:active {
+            background-color: rgb(21, 21, 194); /* Цвет при активном состоянии с прозрачностью */
+        }
+
         .services-section {
             width: 70%; /* Ширина секции */
             margin: 0 auto; /* Центрирование секций */
