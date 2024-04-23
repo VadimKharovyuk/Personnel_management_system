@@ -56,7 +56,7 @@ public class EmployeeController {
         return "employee_form";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/edit/{id}")
     public String editEmployeeForm(@PathVariable Long id, Model model) {
         Optional<Employee> employeeOptional = employeeService.findById(id);
 
