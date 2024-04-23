@@ -52,7 +52,7 @@
         /* Стили для ссылок и кнопок действий */
         .action-links a {
             color: #1f78b4; /* Цвет ссылок */
-            text-decoration: none; /* Убирает подчеркивание */
+            text-decoration: none;  /* Убирает подчеркивание */
         }
 
         .action-links a:hover {
@@ -68,9 +68,16 @@
     <button class="add-employee-button" type="button">Add New Employee</button>
 </a>
 
+<!-- Форма поиска -->
+<form action="/search" method="get">
+    <label for="name">Employee Name:</label>
+    <input type="text" id="name" name="name" required/>
+    <button type="submit">Search</button>
+</form>
+
 <!-- Таблица со списком сотрудников -->
 <div class="table-container"> <!-- Контейнер для центрирования таблицы -->
-    <table class="employee-table"> <!-- Добавляем класс к таблице -->
+    <table class="employee-table"> <!-- Класс для стилизации таблицы -->
         <thead>
         <tr>
             <th>ID</th>
@@ -86,19 +93,19 @@
         <tbody>
         <!-- Проходимся по списку сотрудников -->
         <tr th:each="employee : ${employees}">
-            <td th:text="${employee.id}"></td> <!-- ID -->
-            <td th:text="${employee.name}"></td> <!-- Имя -->
-            <td th:text="${employee.lastname}"></td> <!-- Фамилия -->
-            <td th:text="${employee.salary}"></td> <!-- Зарплата -->
-            <td th:text="${employee.hireDate}"></td> <!-- Дата найма -->
-            <td th:text="${employee.position}"></td> <!-- Позиция -->
-            <td th:text="${employee.team.name}"></td> <!-- Название команды -->
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.lastname}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.hireDate}"></td>
+            <td th:text="${employee.position}"></td>
+            <td th:text="${employee.team.name}"></td>
             <td class="action-links"> <!-- Класс для ссылок -->
                 <!-- Ссылка для редактирования сотрудника -->
                 <a th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a>
                 <!-- Форма для удаления сотрудника -->
                 <form th:action="@{'/employees/delete/' + ${employee.id}}" method="post" style="display:inline;">
-                    <input type="hidden" name="_method" value="DELETE"/> <!-- Указываем метод DELETE -->
+                    <input type="hidden" name="_method" value="DELETE"/>
                     <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
             </td>

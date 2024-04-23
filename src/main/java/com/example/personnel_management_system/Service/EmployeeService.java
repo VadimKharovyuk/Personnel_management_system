@@ -1,4 +1,4 @@
-package com.example.personnel_management_system.service;
+package com.example.personnel_management_system.Service;
 
 import com.example.personnel_management_system.Repository.EmployeeRepository;
 import com.example.personnel_management_system.model.Employee;
@@ -30,5 +30,9 @@ public class EmployeeService {
 
     public void deleteById(Long id) {
         employeeRepository.deleteById(id);
+    }
+    // Метод поиска сотрудников по имени
+    public List<Employee> searchByName(String name) {
+        return employeeRepository.findByName(name);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.personnel_management_system.Controller;
 
+import com.example.personnel_management_system.Service.EmployeeService;
 import com.example.personnel_management_system.Service.TeamNameService;
 import com.example.personnel_management_system.model.Employee;
 import com.example.personnel_management_system.model.TeamName;
@@ -15,7 +16,7 @@ import java.util.Optional;
 @RequestMapping("/employees")
 @AllArgsConstructor
 public class EmployeeController {
-    private final com.example.personnel_management_system.service.EmployeeService employeeService;
+    private final EmployeeService employeeService;
     private final TeamNameService teamNameService;
 
     @PostMapping
