@@ -42,6 +42,11 @@ public class EmployeeController {
         employeeService.save(employee);  // Сохраняем сотрудника
         return "redirect:/employees/new";  // Перенаправление после успешного сохранения
     }
+    @GetMapping
+    public String listEmployees(Model model) {
+        model.addAttribute("employees", employeeService.findAll()); // Получаем список всех сотрудников
+        return "employee_list"; // Возвращаем HTML-шаблон с таблицей сотрудников
+    }
 
     @GetMapping("/new")
     public String newEmployeeForm(Model model) {
