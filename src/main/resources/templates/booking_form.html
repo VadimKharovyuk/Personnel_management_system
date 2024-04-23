@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Form</title>
+    <!-- Включите необходимые CSS и JavaScript библиотеки -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>Booking Form</h1>
+    <form th:action="@{/bookings}" th:object="${booking}" method="post">
+        <!-- Поле для имени -->
+        <div>
+            <label for="first_name">First Name:</label>
+            <input type="text" th:field="*{first_name}" required /> <!-- Валидируемое поле -->
+        </div>
+        <!-- Поле для фамилии -->
+        <div>
+            <label for="last_name">Last Name:</label>
+            <input type="text" th:field="*{last_name}" required />
+        </div>
+        <!-- Поле для номера телефона -->
+        <div>
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" th:field="*{phone_number}" required />
+        </div>
+        <!-- Поле для электронной почты -->
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" th:field="*{email}" required />
+        </div>
+        <!-- Поле для даты бронирования -->
+        <div>
+            <label for="booking_date">Booking Date:</label>
+            <input type="date" th:field="*{booking_date}" required />
+        </div>
+        <!-- Кнопка для отправки формы -->
+        <button type="submit">Save</button>
+    </form>
+    <!-- Ссылка для возврата -->
+    <a href="/bookings">Back to Booking List</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bookings</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Bookings List</h1>
+<!-- Исправленный шаблон -->
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Booking Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking : ${bookings}">
+        <td th:text="${booking.first_name}"></td> <!-- Исправленное выражение -->
+        <td th:text="${booking.last_name}"></td>
+        <td th:text="${booking.phone_number}"></td>
+        <td th:text="${booking.email}"></td>
+        <td th:text="${booking.booking_date}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/bookings/new">Add New Booking</a> <!-- Ссылка на добавление новой записи -->
+</body>
+</html>
