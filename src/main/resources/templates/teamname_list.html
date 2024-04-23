@@ -83,7 +83,7 @@
     <table>
         <thead>
         <tr>
-            <th>ID</th> <!-- Заголовки -->
+<!--            <th>ID</th> &lt;!&ndash; Заголовки &ndash;&gt;-->
             <th>Name</th>
             <th>Description</th>
             <th>Actions</th>
@@ -92,12 +92,12 @@
         <tbody>
         <!-- Проходимся по списку команд -->
         <tr th:each="teamName : ${teamNames}">
-            <td th:text="${teamName.id}"></td> <!-- ID -->
+<!--            <td th:text="${teamName.id}"></td> &lt;!&ndash; ID &ndash;&gt;-->
             <td th:text="${teamName.name}"></td> <!-- Имя -->
             <td th:text="${teamName.description}"></td> <!-- Описание -->
             <td>
                 <!-- Ссылка для редактирования команды -->
-                <a th:href="@{'/teamNames/' + ${teamName.id}}">Edit</a>
+<!--                <a th:href="@{'/teamNames/' + ${teamName.id}}">Edit</a>-->
                 <!-- Форма для удаления команды -->
                 <form th:action="@{'/teamNames/' + ${teamName.id}}" method="post" style="display:inline;">
                     <input type="hidden" name="_method" value="DELETE"/> <!-- Указываем метод DELETE -->

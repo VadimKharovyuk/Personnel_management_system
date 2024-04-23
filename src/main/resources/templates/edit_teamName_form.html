@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Team Name</title>
+    <!-- Включите необходимые CSS и JavaScript библиотеки -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>Edit Team Name</h1>
+    <!-- Используем метод POST для отправки данных на сервер -->
+    <form th:action="@{'/teamNames/update/' + ${teamName.id}}" th:object="${teamName}" method="post">
+        <!-- Поле для редактирования названия команды -->
+        <div>
+            <label for="name">Team Name:</label>
+            <input type="text" th:field="*{name}" required />
+        </div>
+
+        <!-- Добавьте другие поля, необходимые для редактирования команды -->
+
+        <!-- Кнопка для отправки данных -->
+        <button type="submit">Save</button>
+    </form>
+
+    <!-- Ссылка для возврата к списку команд -->
+    <a href="/teamNames">Back to Team List</a>
+</div>
+</body>
+</html>

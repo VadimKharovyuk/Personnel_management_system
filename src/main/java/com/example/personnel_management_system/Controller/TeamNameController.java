@@ -35,16 +35,24 @@ public class TeamNameController {
         return "redirect:/teamNames";  // Перенаправляем после сохранения
     }
 
-    @GetMapping("/{id}")
-    public String editTeamNameForm(@PathVariable Long id, Model model) {
+    @GetMapping("/teamNames/{id}")
+    public String editTeamName(@PathVariable Long id, Model model) {
+        // Получение информации о команде по идентификатору
         Optional<TeamName> teamName = teamNameService.findById(id);
-        if (teamName.isPresent()) {
-            model.addAttribute("teamName", teamName.get());
-            return "";  // Используем ту же форму для редактирования
-        } else {
-            return "redirect:/teamNames";  // Если команда не найдена, перенаправляем
+
+        // Проверка, существует ли команда
+        if (teamName == null) {
+            return "error/404"; // Возврат страницы ошибки, если команда не найдена
         }
+
+        model.addAttribute("teamName", teamName); // Добавление команды в модель для отображения в форме
+        return "edit_teamName_form"; // Имя HTML-шаблона для редактирования команды
     }
+
+
+
+
+
 
     @RequestMapping("/{id}")
     public String deleteTeamName(@PathVariable Long id) {

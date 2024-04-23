@@ -122,7 +122,7 @@
     <table class="employee-table"> <!-- Класс для стилизации таблицы -->
         <thead>
         <tr>
-            <th>ID</th>
+<!--            <th>ID</th>-->
             <th>Name</th>
             <th>Last Name</th>
             <th>Salary</th>
@@ -135,7 +135,7 @@
         <tbody>
         <!-- Проходимся по списку сотрудников -->
         <tr th:each="employee : ${employees}">
-            <td th:text="${employee.id}"></td>
+<!--            <td th:text="${employee.id}"></td>-->
             <td th:text="${employee.name}"></td>
             <td th:text="${employee.lastname}"></td>
             <td th:text="${employee.salary}"></td>
