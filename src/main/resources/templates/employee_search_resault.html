@@ -1,3 +1,100 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <title>Employee Search Results</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/css/styles.css"> &lt;!&ndash; Подключение CSS &ndash;&gt;-->
+<!--    <style>-->
+<!--        /* Общие стили */-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            padding: 20px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            color: #333;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        /* Стили для таблицы */-->
+<!--        .employee-table {-->
+<!--            width: 80%;  /* Таблица занимает 80% ширины страницы */-->
+<!--            margin: 20px auto;  /* Центрирование таблицы */-->
+<!--            border-collapse: collapse;  /* Убираем двойные границы */-->
+<!--            background-color: white;  /* Белый фон */-->
+<!--        }-->
+
+<!--        .employee-table th {-->
+<!--            background-color: #333;  /* Темный фон для заголовков */-->
+<!--            color: white;  /* Белый цвет текста для заголовков */-->
+<!--            padding: 10px;-->
+<!--        }-->
+
+<!--        .employee-table td {-->
+<!--            padding: 10px;-->
+<!--            border-bottom: 1px solid #ccc;  /* Разделительная линия между строками */-->
+<!--        }-->
+
+<!--        /* Стили для ссылок */-->
+<!--        a {-->
+<!--            color: #333;  /* Цвет текста */-->
+<!--            text-decoration: none;  /* Убираем подчеркивание */-->
+<!--        }-->
+
+<!--        a:hover {-->
+<!--            text-decoration: underline;  /* Подчеркивание при наведении мыши */-->
+<!--        }-->
+
+<!--        /* Стили для кнопок */-->
+<!--        .button {-->
+<!--            background-color: #333;  /* Темный фон */-->
+<!--            color: white;  /* Белый текст */-->
+<!--            padding: 10px;-->
+<!--            border: none;  /* Без границ */-->
+<!--            cursor: pointer;  /* Курсор в виде руки */-->
+<!--        }-->
+
+<!--        .button:hover {-->
+<!--            background-color: #555;  /* Более светлый фон при наведении мыши */-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Search Results</h1>-->
+
+<!--&lt;!&ndash; Таблица со списком найденных сотрудников &ndash;&gt;-->
+<!--<table class="employee-table">  &lt;!&ndash; Применение класса к таблице &ndash;&gt;-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Last Name</th>-->
+<!--        <th>Salary</th>-->
+<!--        <th>Hire Date</th>-->
+<!--        <th>Position</th>-->
+<!--        <th>Team</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    &lt;!&ndash; Проходимся по списку сотрудников &ndash;&gt;-->
+<!--    <tr th:each="employee : ${employees}">-->
+<!--        <td th:text="${employee.id}"></td>  &lt;!&ndash; ID &ndash;&gt;-->
+<!--        <td th:text="${employee.name}"></td>  &lt;!&ndash; Имя &ndash;&gt;-->
+<!--        <td th:text="${employee.lastname}"></td>  &lt;!&ndash; Фамилия &ndash;&gt;-->
+<!--        <td th:text="${employee.salary}"></td>  &lt;!&ndash; Зарплата &ndash;&gt;-->
+<!--        <td th:text="${employee.hireDate}"></td>  &lt;!&ndash; Дата найма &ndash;&gt;-->
+<!--        <td th:text="${employee.position}"></td>  &lt;!&ndash; Позиция &ndash;&gt;-->
+<!--        <td th:text="${employee.team.name}"></td>  &lt;!&ndash; Название команды &ndash;&gt;-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+<!--&lt;!&ndash; Ссылка на главную &ndash;&gt;-->
+<!--<a href="/">Back to Home</a>  &lt;!&ndash; Ссылка на главную &ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,7 +181,7 @@
         <td th:text="${employee.salary}"></td>  <!-- Зарплата -->
         <td th:text="${employee.hireDate}"></td>  <!-- Дата найма -->
         <td th:text="${employee.position}"></td>  <!-- Позиция -->
-        <td th:text="${employee.team.name}"></td>  <!-- Название команды -->
+        <td th:text="${employee.team != null ? employee.team.name : 'Not assigned'}"></td>  <!-- Название команды -->
     </tr>
     </tbody>
 </table>

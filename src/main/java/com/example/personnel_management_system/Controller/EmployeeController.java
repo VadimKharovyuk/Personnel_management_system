@@ -59,6 +59,7 @@ public class EmployeeController {
     @GetMapping("/edit/{id}")
     public String editEmployeeForm(@PathVariable Long id, Model model) {
         Optional<Employee> employeeOptional = employeeService.findById(id);
+        System.out.println("ищу юзера в БД " + id);
 
         if (employeeOptional.isPresent()) {
             model.addAttribute("employee", employeeOptional.get());
