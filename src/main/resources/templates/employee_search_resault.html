@@ -170,6 +170,7 @@
         <th>Hire Date</th>
         <th>Position</th>
         <th>Team</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -182,6 +183,7 @@
         <td th:text="${employee.hireDate}"></td>  <!-- Дата найма -->
         <td th:text="${employee.position}"></td>  <!-- Позиция -->
         <td th:text="${employee.team != null ? employee.team.name : 'Not assigned'}"></td>  <!-- Название команды -->
+        <td> <a th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a></td>
     </tr>
     </tbody>
 </table>
