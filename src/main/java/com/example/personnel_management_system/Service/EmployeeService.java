@@ -76,7 +76,6 @@ public class EmployeeService {
         try {
             return employeeRepository.findById(id);
         } catch (DataAccessException e) {
-            // Логика обработки отказа Redis и других исключений доступа к данным
             return employeeRepository.findById(id);
         }
     }
@@ -86,7 +85,6 @@ public class EmployeeService {
         try {
             return employeeRepository.save(employee);
         } catch (DataAccessException e) {
-            // Логика обработки отказа Redis и других исключений доступа к данным
             return employeeRepository.save(employee);
         }
     }
@@ -96,7 +94,6 @@ public class EmployeeService {
         try {
             employeeRepository.deleteById(id);
         } catch (DataAccessException e) {
-            // Логика обработки отказа Redis и других исключений доступа к данным
             employeeRepository.deleteById(id);
         }
     }
@@ -106,7 +103,6 @@ public class EmployeeService {
         try {
             return employeeRepository.findByNameIgnoreCase(name.toLowerCase());
         } catch (DataAccessException e) {
-            // Логика обработки отказа Redis и других исключений доступа к данным
             return employeeRepository.findByNameIgnoreCase(name.toLowerCase());
         }
     }
