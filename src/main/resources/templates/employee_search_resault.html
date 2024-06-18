@@ -183,7 +183,13 @@
         <td th:text="${employee.hireDate}"></td>  <!-- Дата найма -->
         <td th:text="${employee.position}"></td>  <!-- Позиция -->
         <td th:text="${employee.team != null ? employee.team.name : 'Not assigned'}"></td>  <!-- Название команды -->
-        <td> <a th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a></td>
+        <td> <a th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a>
+            <form th:action="@{'/employees/delete/' + ${employee.id}}" method="post" style="display:inline;">
+                <input type="hidden" name="_method" value="POST"/>
+                <button type="submit" >Delete</button>
+            </form>
+        </td>
+
     </tr>
     </tbody>
 </table>
