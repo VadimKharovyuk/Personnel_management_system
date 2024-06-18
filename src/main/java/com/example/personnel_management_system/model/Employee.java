@@ -24,7 +24,7 @@ public class Employee  implements Serializable {
     private String position;
     private String phone;  // Может быть null
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST) // Изменим каскадирование, если необходимо
     @JoinColumn(name = "team_id")
     @JsonIgnore  // игнорируем сериализацию team при выводе в JSON
     private TeamName team;
