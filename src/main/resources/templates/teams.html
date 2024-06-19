@@ -3,15 +3,27 @@
 <head>
     <title>Teams</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <h1 class="my-4">Teams</h1>
-    <ul class="list-group">
-        <li class="list-group-item" th:each="team : ${teams}">
-            <a th:href="@{'/teams/' + ${team.id} + '/employees'}" th:text="${team.name}">Team Name</a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-4 mb-4" th:each="team : ${teams}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a th:href="@{'/teams/' + ${team.id} + '/employees'}" th:text="${team.name}">Team Name</a>
+                    </h5>
+                    <p class="card-text" th:text="${team.description}">Team Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
