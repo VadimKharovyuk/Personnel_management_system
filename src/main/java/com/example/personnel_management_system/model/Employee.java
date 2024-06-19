@@ -1,7 +1,7 @@
 package com.example.personnel_management_system.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;  // Импорт всех необходимых аннотаций
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

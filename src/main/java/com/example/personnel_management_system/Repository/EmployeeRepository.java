@@ -10,6 +10,7 @@ import java.util.List;
 public interface EmployeeRepository  extends JpaRepository<Employee,Long> {
     // Метод поиска сотрудников по имени
     List<Employee> findByName(String name);
+    List<Employee> findByTeamId(Long teamId);
 
     List<Employee> findByNameIgnoreCase(String lowerCaseName);
 

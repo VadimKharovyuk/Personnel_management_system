@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<nav class="dark-nav"> <!-- Применяем класс темной навигации -->
+    <ul>
+        <li><a href="/">Home</a></li> <!-- Ссылка на список сотрудников -->
+        <li><a href="/employees">Employee List</a></li> <!-- Ссылка на список сотрудников -->
+        <li><a href="/employees/new">Add New Employee</a></li> <!-- Ссылка на добавление сотрудника -->
+        <li><a href="/teamNames">Position List</a></li> <!-- Ссылка на список должностей -->
+        <li><a href="/teamNames/new">Add New Team</a></li> <!-- Ссылка на добавление новой должности -->
+    </ul>
+</nav>
+<body>
+<div class="container">
+    <h1 class="my-4">Employees</h1>
+    <ul class="list-group">
+        <li class="list-group-item" th:each="employee : ${employees}">
+            <strong>Name:</strong> <span th:text="${employee.name}">Employee Name</span><br>
+            <strong>Lastname:</strong> <span th:text="${employee.lastname}">Employee Lastname</span><br>
+            <strong>Salary:</strong> <span th:text="${employee.salary}">Employee Salary</span><br>
+            <strong>Hire Date:</strong> <span th:text="${employee.hireDate}">Hire Date</span><br>
+            <strong>Position:</strong> <span th:text="${employee.position}">Position</span><br>
+            <strong>Phone:</strong> <span th:text="${employee.phone}">Phone</span>
+        </li>
+    </ul>
+    <a class="btn btn-primary mt-4" th:href="@{/teams}">Back to Teams</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
