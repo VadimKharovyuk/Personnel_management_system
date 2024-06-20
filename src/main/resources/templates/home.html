@@ -1,3 +1,429 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <title>Home Page</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/css/styles.css">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background-color: #9ea0cb;-->
+<!--            background-image:-->
+<!--                    radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%),-->
+<!--                    radial-gradient(at 82% 65%, hsl(292, 54%, 43%) 0, transparent 55%);-->
+<!--        }-->
+
+
+<!--        .hederh1{-->
+<!--            color: whitesmoke;-->
+<!--            text-align: center;-->
+<!--            padding: 50px;-->
+<!--        }-->
+<!--        .dark-nav {-->
+<!--            background-color: rgb(5, 76, 79); /* Темный фон с прозрачностью */-->
+<!--            padding: 10px; /* Отступ */-->
+<!--            border-radius: 5px; /* Округление углов */-->
+<!--        }-->
+
+<!--        .dark-nav ul {-->
+<!--            list-style: none; /* Убираем точки */-->
+<!--            margin: 0; /* Обнуляем внешний отступ */-->
+<!--            padding: 0; /* Обнуляем внутренний отступ */-->
+<!--            display: flex; /* Горизонтальное расположение элементов */-->
+<!--            justify-content: space-around; /* Равномерное распределение */-->
+<!--        }-->
+
+<!--        .dark-nav ul li a {-->
+<!--            color: white; /* Белый цвет текста */-->
+<!--            text-decoration: none; /* Убираем подчеркивание */-->
+<!--            padding: 10px 15px; /* Отступ внутри элементов */-->
+<!--            transition: background-color 0.3s; /* Эффект перехода */-->
+<!--        }-->
+
+<!--        .dark-nav ul li a:hover {-->
+<!--            background-color: rgb(76, 165, 203); /* Цвет при наведении с прозрачностью */-->
+<!--        }-->
+
+<!--        .dark-nav ul li a:active {-->
+<!--            background-color: rgb(21, 21, 194); /* Цвет при активном состоянии с прозрачностью */-->
+<!--        }-->
+
+<!--        .services-section {-->
+<!--            width: 70%; /* Ширина секции */-->
+<!--            margin: 0 auto; /* Центрирование секций */-->
+<!--            background-color: #bbe3d5; /* Белый фон секции */-->
+<!--            padding: 20px; /* Отступы вокруг контента */-->
+<!--            margin-bottom: 50px; /* Отступ между секциями */-->
+<!--            border-radius: 10px; /* Округленные углы */-->
+<!--            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Тень для секций */-->
+<!--            transition: box-shadow 0.3s; /* Переход для тени */-->
+<!--        }-->
+
+
+
+<!--        .services-section:hover {-->
+<!--            box-shadow: 0 8px 16px 0 rgba(14, 232, 59, 0.9); /* Более сильная тень при наведении */-->
+<!--        }-->
+<!--        .fixed-footer {-->
+<!--            position: fixed; /* Закрепляет футер внизу страницы */-->
+<!--            bottom: 0; /* Расположение снизу */-->
+<!--            width: 100%; /* Полная ширина */-->
+<!--            background-color: rgba(255, 255, 255, 0.7); /* Прозрачный фон */-->
+<!--            padding: 10px; /* Отступы вокруг контента */-->
+<!--            text-align: center; /* Центрирует текст */-->
+<!--            border-top: 1px solid #ccc; /* Граница сверху */-->
+<!--            box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2); /* Тень сверху */-->
+<!--        }-->
+
+<!--        .fixed-footer p {-->
+<!--            margin: 0; /* Обнуляем внешний отступ */-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--&lt;!&ndash; Навигация &ndash;&gt;-->
+<!--<nav class="dark-nav">-->
+<!--    <ul>-->
+<!--        <li><a href="/">Home</a></li>-->
+<!--        <li><a href="/employees">Employee List</a></li>-->
+<!--&lt;!&ndash;        <li><a href="/employees/new">Add New Employee</a></li>&ndash;&gt;-->
+<!--        <li><a href="/teamNames">Command List</a></li>-->
+<!--&lt;!&ndash;        <li><a href="/teamNames/new">Add New Team</a></li>&ndash;&gt;-->
+<!--        <li><a href="/bookings">Booking</a></li>-->
+<!--    </ul>-->
+<!--</nav>-->
+
+<!--<header class="parallax"> &lt;!&ndash; Добавляем класс параллакса &ndash;&gt;-->
+<!--    <h1 class="hederh1">Организуем шоу, которые покоряют сердца"</h1>-->
+<!--    <p class="hederh1">Создаем уникальные моменты в мире шоу-бизнеса. Ваше событие - наша забота."</p>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Дополнительные ссылки &ndash;&gt;-->
+<!--<p>Additional links for administrative tasks:</p>-->
+<!--<nav>-->
+<!--    <ul>-->
+<!--        <li><a href="/teams">teams</a></li>-->
+<!--        <li><a href="/settings">Settings</a></li>-->
+<!--    </ul>-->
+<!--</nav>-->
+<!--<section class="services-section" id="artists-services">-->
+<!--    <h2 style="text-align: center">Услуги по Работе с Артистами</h2>-->
+<!--    <p>Мы предлагаем разнообразный спектр услуг для работы с артистами. Наша команда включает:</p>-->
+<!--    <ul>-->
+<!--        <li><strong>Танцоры</strong>: Мы работаем с профессиональными танцорами, которые могут выступать в различных стилях, от классического балета до современных хип-хоп направлений.</li>-->
+<!--        <li><strong>Акробаты</strong>: Наши акробаты — мастера сложных трюков, которые добавят захватывающие моменты в любое шоу или мероприятие.</li>-->
+<!--        <li><strong>Музыканты</strong>: Мы предоставляем талантливых музыкантов, включая оркестры, ансамбли и сольных исполнителей, которые создадут идеальную атмосферу для вашего события.</li>-->
+<!--    </ul>-->
+<!--</section>-->
+
+<!--<section class="services-section" id="corporate-services">-->
+<!--    <h2 style="text-align: center">Услуги для Проведения Корпоративов</h2>-->
+<!--    <p>Мы предлагаем полный спектр услуг для организации корпоративных мероприятий:</p>-->
+<!--    <ul>-->
+<!--        <li><strong>Организация шоу-программ</strong>: Мы можем создать и организовать развлекательные программы, которые включают выступления танцоров, акробатов, музыкантов и других артистов.</li>-->
+<!--        <li><strong>Техническая Поддержка</strong>: Наша команда обеспечивает полную техническую поддержку, включая звуковое и световое оборудование, для проведения мероприятий на высшем уровне.</li>-->
+<!--        <li><strong>Услуги Координации</strong>: Наши профессиональные координаторы позаботятся о том, чтобы ваше корпоративное мероприятие прошло гладко, управляя логистикой и расписанием.</li>-->
+<!--    </ul>-->
+<!--</section>-->
+<!--<section class="services-section" id="company-history">-->
+<!--    <h2 style="text-align: center">История Создания Компании</h2>-->
+<!--    <p>Наша компания была основана в 2008 году группой энтузиастов шоу-бизнеса. Мы начали с небольших выступлений, но благодаря нашему креативному подходу и страсти к искусству, мы быстро выросли. Сейчас мы являемся ведущей компанией в области организации мероприятий, с репутацией за создание уникальных и ярких шоу. Мы гордимся тем, что смогли собрать команду талантливых артистов и профессионалов, которые готовы воплотить любые идеи в реальность.</p>-->
+<!--</section>-->
+<!--<footer class="fixed-footer">-->
+<!--    <p>© 2024 Event Company. Все права защищены.</p>-->
+<!--</footer>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Event Company</title>-->
+<!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <style>-->
+<!--        .parallax {-->
+<!--            /* Добавьте ваши стили параллакса */-->
+<!--        }-->
+<!--        .hederh1 {-->
+<!--            text-align: center;-->
+<!--            color: #333;-->
+<!--        }-->
+<!--        .dark-nav ul {-->
+<!--            list-style: none;-->
+<!--            padding: 0;-->
+<!--        }-->
+<!--        .dark-nav li {-->
+<!--            display: inline;-->
+<!--            margin-right: 15px;-->
+<!--        }-->
+<!--        .fixed-footer {-->
+<!--            text-align: center;-->
+<!--            padding: 10px;-->
+<!--            background-color: #f1f1f1;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--&lt;!&ndash; Навигация &ndash;&gt;-->
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--    <a class="navbar-brand" href="/">Event Company</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/">Home</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/employees">Employee List</a>-->
+<!--            </li>-->
+<!--            &lt;!&ndash; <li class="nav-item">-->
+<!--                <a class="nav-link" href="/employees/new">Add New Employee</a>-->
+<!--            </li> &ndash;&gt;-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/teamNames">Command List</a>-->
+<!--            </li>-->
+<!--            &lt;!&ndash; <li class="nav-item">-->
+<!--                <a class="nav-link" href="/teamNames/new">Add New Team</a>-->
+<!--            </li> &ndash;&gt;-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/bookings">Booking</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<!--<header class="parallax text-center py-5">-->
+<!--    <h1 class="hederh1">Организуем шоу, которые покоряют сердца</h1>-->
+<!--    <p class="hederh1">Создаем уникальные моменты в мире шоу-бизнеса. Ваше событие - наша забота.</p>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Дополнительные ссылки &ndash;&gt;-->
+<!--<div class="container my-4">-->
+<!--    <p>Additional links for administrative tasks:</p>-->
+<!--    <nav>-->
+<!--        <ul class="list-unstyled">-->
+<!--            <li><a href="/teams">Teams</a></li>-->
+<!--            <li><a href="/settings">Settings</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</div>-->
+
+<!--<section class="services-section container" id="artists-services">-->
+<!--    <h2 class="text-center">Услуги по Работе с Артистами</h2>-->
+<!--    <p>Мы предлагаем разнообразный спектр услуг для работы с артистами. Наша команда включает:</p>-->
+<!--    <ul>-->
+<!--        <li><strong>Танцоры</strong>: Мы работаем с профессиональными танцорами, которые могут выступать в различных стилях, от классического балета до современных хип-хоп направлений.</li>-->
+<!--        <li><strong>Акробаты</strong>: Наши акробаты — мастера сложных трюков, которые добавят захватывающие моменты в любое шоу или мероприятие.</li>-->
+<!--        <li><strong>Музыканты</strong>: Мы предоставляем талантливых музыкантов, включая оркестры, ансамбли и сольных исполнителей, которые создадут идеальную атмосферу для вашего события.</li>-->
+<!--    </ul>-->
+<!--</section>-->
+
+<!--<section class="services-section container" id="corporate-services">-->
+<!--    <h2 class="text-center">Услуги для Проведения Корпоративов</h2>-->
+<!--    <p>Мы предлагаем полный спектр услуг для организации корпоративных мероприятий:</p>-->
+<!--    <ul>-->
+<!--        <li><strong>Организация шоу-программ</strong>: Мы можем создать и организовать развлекательные программы, которые включают выступления танцоров, акробатов, музыкантов и других артистов.</li>-->
+<!--        <li><strong>Техническая Поддержка</strong>: Наша команда обеспечивает полную техническую поддержку, включая звуковое и световое оборудование, для проведения мероприятий на высшем уровне.</li>-->
+<!--        <li><strong>Услуги Координации</strong>: Наши профессиональные координаторы позаботятся о том, чтобы ваше корпоративное мероприятие прошло гладко, управляя логистикой и расписанием.</li>-->
+<!--    </ul>-->
+<!--</section>-->
+
+<!--<section class="services-section container" id="company-history">-->
+<!--    <h2 class="text-center">История Создания Компании</h2>-->
+<!--    <p>Наша компания была основана в 2008 году группой энтузиастов шоу-бизнеса. Мы начали с небольших выступлений, но благодаря нашему креативному подходу и страсти к искусству, мы быстро выросли. Сейчас мы являемся ведущей компанией в области организации мероприятий, с репутацией за создание уникальных и ярких шоу. Мы гордимся тем, что смогли собрать команду талантливых артистов и профессионалов, которые готовы воплотить любые идеи в реальность.</p>-->
+<!--</section>-->
+
+<!--<footer class="fixed-footer">-->
+<!--    <p>© 2024 Event Company. Все права защищены.</p>-->
+<!--</footer>-->
+
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Event Company</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            line-height: 1.6;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            box-sizing: border-box;-->
+<!--            background-color: #f4f4f4;-->
+<!--        }-->
+<!--        nav.dark-nav {-->
+<!--            background: #333;-->
+<!--            color: white;-->
+<!--            padding: 10px 0;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        nav.dark-nav ul {-->
+<!--            list-style: none;-->
+<!--            padding: 0;-->
+<!--            margin: 0;-->
+<!--        }-->
+<!--        nav.dark-nav li {-->
+<!--            display: inline;-->
+<!--            margin-right: 15px;-->
+<!--        }-->
+<!--        nav.dark-nav a {-->
+<!--            color: white;-->
+<!--            text-decoration: none;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--        header.parallax {-->
+<!--            background: url('/pic/Default_event_company_for_work_in_show_business_3.jpg') no-repeat center center/cover;-->
+<!--            height: 300px;-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            text-align: center;-->
+<!--            color: white;-->
+<!--        }-->
+<!--        .hederh1 {-->
+<!--            margin: 0;-->
+<!--            padding: 10px;-->
+<!--            font-size: 2.5em;-->
+<!--            background: rgba(0, 0, 0, 0.5);-->
+<!--        }-->
+<!--        .container {-->
+<!--            width: 80%;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background: white;-->
+<!--            margin-top: 20px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+<!--        .services-section {-->
+<!--            margin-bottom: 40px;-->
+<!--        }-->
+<!--        .services-section h2 {-->
+<!--            text-align: center;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .services-section ul {-->
+<!--            list-style: none;-->
+<!--            padding: 0;-->
+<!--        }-->
+<!--        .services-section li {-->
+<!--            background: #f4f4f4;-->
+<!--            margin-bottom: 10px;-->
+<!--            padding: 15px;-->
+<!--            border-left: 5px solid #333;-->
+<!--        }-->
+<!--        .fixed-footer {-->
+<!--            background: #333;-->
+<!--            color: white;-->
+<!--            text-align: center;-->
+<!--            padding: 10px 0;-->
+<!--            position: fixed;-->
+<!--            bottom: 0;-->
+<!--            width: 100%;-->
+<!--        }-->
+<!--        .additional-links {-->
+<!--            margin: 20px 0;-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--        .additional-links a {-->
+<!--            display: inline-block;-->
+<!--            margin: 0 10px;-->
+<!--            text-decoration: none;-->
+<!--            color: #333;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--        @media (max-width: 768px) {-->
+<!--            .container {-->
+<!--                width: 95%;-->
+<!--            }-->
+<!--            nav.dark-nav li {-->
+<!--                display: block;-->
+<!--                margin: 10px 0;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--&lt;!&ndash; Навигация &ndash;&gt;-->
+<!--<nav class="dark-nav">-->
+<!--    <ul>-->
+<!--        <li><a href="/">Home</a></li>-->
+<!--        <li><a href="/employees">Employee List</a></li>-->
+<!--        &lt;!&ndash; <li><a href="/employees/new">Add New Employee</a></li> &ndash;&gt;-->
+<!--        <li><a href="/teamNames">Command List</a></li>-->
+<!--        &lt;!&ndash; <li><a href="/teamNames/new">Add New Team</a></li> &ndash;&gt;-->
+<!--        <li><a href="/bookings">Booking</a></li>-->
+<!--    </ul>-->
+<!--</nav>-->
+
+<!--<header class="parallax">-->
+<!--    <h1 class="hederh1">Организуем шоу, которые покоряют сердца</h1>-->
+<!--    <p class="hederh1">Создаем уникальные моменты в мире шоу-бизнеса. Ваше событие - наша забота.</p>-->
+<!--</header>-->
+
+<!--&lt;!&ndash; Дополнительные ссылки &ndash;&gt;-->
+<!--<div class="container">-->
+<!--    <div class="additional-links">-->
+<!--        <p>Additional links for administrative tasks:</p>-->
+<!--        <a href="/teams">Teams</a>-->
+<!--        <a href="/settings">Settings</a>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<section class="services-section container" id="artists-services">-->
+<!--    <h2>Услуги по Работе с Артистами</h2>-->
+<!--    <p>Мы предлагаем разнообразный спектр услуг для работы с артистами. Наша команда включает:</p>-->
+<!--    <ul>-->
+<!--        <li><strong>Танцоры</strong>: Мы работаем с профессиональными танцорами, которые могут выступать в различных стилях, от классического балета до современных хип-хоп направлений.</li>-->
+<!--        <li><strong>Акробаты</strong>: Наши акробаты — мастера сложных трюков, которые добавят захватывающие моменты в любое шоу или мероприятие.</li>-->
+<!--        <li><strong>Музыканты</strong>: Мы предоставляем талантливых музыкантов, включая оркестры, ансамбли и сольных исполнителей, которые создадут идеальную атмосферу для вашего события.</li>-->
+<!--    </ul>-->
+<!--</section>-->
+
+<!--<section class="services-section container" id="corporate-services">-->
+<!--    <h2>Услуги для Проведения Корпоративов</h2>-->
+<!--    <p>Мы предлагаем полный спектр услуг для организации корпоративных мероприятий:</p>-->
+<!--    <ul>-->
+<!--        <li><strong>Организация шоу-программ</strong>: Мы можем создать и организовать развлекательные программы, которые включают выступления танцоров, акробатов, музыкантов и других артистов.</li>-->
+<!--        <li><strong>Техническая Поддержка</strong>: Наша команда обеспечивает полную техническую поддержку, включая звуковое и световое оборудование, для проведения мероприятий на высшем уровне.</li>-->
+<!--        <li><strong>Услуги Координации</strong>: Наши профессиональные координаторы позаботятся о том, чтобы ваше корпоративное мероприятие прошло гладко, управляя логистикой и расписанием.</li>-->
+<!--    </ul>-->
+<!--</section>-->
+
+<!--<section class="services-section container" id="company-history">-->
+<!--    <h2>История Создания Компании</h2>-->
+<!--    <p>Наша компания была основана в 2008 году группой энтузиастов шоу-бизнеса. Мы начали с небольших выступлений, но благодаря нашему креативному подходу и страсти к искусству, мы быстро выросли. Сейчас мы являемся ведущей компанией в области организации мероприятий, с репутацией за создание уникальных и ярких шоу. Мы гордимся тем, что смогли собрать команду талантливых артистов и профессионалов, которые готовы воплотить любые идеи в реальность.</p>-->
+<!--</section>-->
+
+<!--<footer class="fixed-footer">-->
+<!--    <p>© 2024 Event Company. Все права защищены.</p>-->
+<!--</footer>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +437,12 @@
                     radial-gradient(at 82% 65%, hsl(292, 54%, 43%) 0, transparent 55%);
         }
 
-
         .hederh1{
             color: whitesmoke;
             text-align: center;
             padding: 50px;
         }
+
         .dark-nav {
             background-color: rgb(5, 76, 79); /* Темный фон с прозрачностью */
             padding: 10px; /* Отступ */
@@ -57,11 +483,10 @@
             transition: box-shadow 0.3s; /* Переход для тени */
         }
 
-
-
         .services-section:hover {
             box-shadow: 0 8px 16px 0 rgba(14, 232, 59, 0.9); /* Более сильная тень при наведении */
         }
+
         .fixed-footer {
             position: fixed; /* Закрепляет футер внизу страницы */
             bottom: 0; /* Расположение снизу */
@@ -76,6 +501,47 @@
         .fixed-footer p {
             margin: 0; /* Обнуляем внешний отступ */
         }
+
+        /* Стили для параллакса */
+        .parallax {
+            background-image: url('your-image-url.jpg'); /* Замените 'your-image-url.jpg' на URL вашего изображения */
+            height: 500px; /* Высота секции параллакса */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .parallax-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: whitesmoke;
+        }
+        /* Стили для параллакса */
+        .parallax {
+            background-image: url('/pic/Default_event_company_for_work_in_show_business_3.jpg'); /* Замените 'your-image-url.jpg' на URL вашего изображения */
+            height: 500px; /* Высота секции параллакса */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .parallax-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: whitesmoke;
+        }
+
+
     </style>
 </head>
 <body>
@@ -85,16 +551,16 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/employees">Employee List</a></li>
-<!--        <li><a href="/employees/new">Add New Employee</a></li>-->
         <li><a href="/teamNames">Command List</a></li>
-<!--        <li><a href="/teamNames/new">Add New Team</a></li>-->
         <li><a href="/bookings">Booking</a></li>
     </ul>
 </nav>
 
-<header class="parallax"> <!-- Добавляем класс параллакса -->
-    <h1 class="hederh1">Организуем шоу, которые покоряют сердца"</h1>
-    <p class="hederh1">Создаем уникальные моменты в мире шоу-бизнеса. Ваше событие - наша забота."</p>
+<header class="parallax">
+    <div class="parallax-inner">
+        <h1 class="hederh1">Организуем шоу, которые покоряют сердца</h1>
+        <p class="hederh1">Создаем уникальные моменты в мире шоу-бизнеса. Ваше событие - наша забота.</p>
+    </div>
 </header>
 
 <!-- Дополнительные ссылки -->
@@ -105,6 +571,7 @@
         <li><a href="/settings">Settings</a></li>
     </ul>
 </nav>
+
 <section class="services-section" id="artists-services">
     <h2 style="text-align: center">Услуги по Работе с Артистами</h2>
     <p>Мы предлагаем разнообразный спектр услуг для работы с артистами. Наша команда включает:</p>
@@ -124,14 +591,15 @@
         <li><strong>Услуги Координации</strong>: Наши профессиональные координаторы позаботятся о том, чтобы ваше корпоративное мероприятие прошло гладко, управляя логистикой и расписанием.</li>
     </ul>
 </section>
+
 <section class="services-section" id="company-history">
     <h2 style="text-align: center">История Создания Компании</h2>
     <p>Наша компания была основана в 2008 году группой энтузиастов шоу-бизнеса. Мы начали с небольших выступлений, но благодаря нашему креативному подходу и страсти к искусству, мы быстро выросли. Сейчас мы являемся ведущей компанией в области организации мероприятий, с репутацией за создание уникальных и ярких шоу. Мы гордимся тем, что смогли собрать команду талантливых артистов и профессионалов, которые готовы воплотить любые идеи в реальность.</p>
 </section>
+
 <footer class="fixed-footer">
     <p>© 2024 Event Company. Все права защищены.</p>
 </footer>
-
 
 </body>
 </html>
